@@ -11,7 +11,7 @@ namespace AgendaApi
         {
             get
             {
-                return @"Data Source=.\VINICIUSMSSQL;Initial Catalog=ControleAgenda;Integrated Security=True;User ID=sa;Password=vinicius@290993;";
+                return @"Data Source=.\VINICIUSMSSQL;Initial Catalog=ControleAgenda;Integrated Security=True;User ID=user;Password=password;";
             }
         }
     }
