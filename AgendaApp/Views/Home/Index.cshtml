@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AgendaApp.Models.Contato>
+
+@{
+    ViewData["Title"] = "Contatos";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contatos</title>
+</head>
+<body>
+    <p>
+        <a asp-action="CriarContato">Novo Contato</a>
+    </p>
+    <form method="get" asp-action="Pesquisar">
+        <input type="text" id="pesquisa" name="pesquisa" />
+        <input type="submit" value="Pesquisar" />
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefone)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "EditarContato", new { id = item.Id }) |
+                        @Html.ActionLink("Deletar", "DeletarContato", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
